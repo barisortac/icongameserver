@@ -56,7 +56,7 @@ app.get('/api/leaderboard',
     try {
       const db = await connectToDatabase(process.env.MONGODB_URI)
       const collection = await db.collection('leaderboard')
-      const sort = { score: 1 };
+      const sort = { score: -1 };
       const leaderboard = await collection.find({}).sort(sort).toArray()
       res.status(200).json({ leaderboard })
     } catch(err) {
