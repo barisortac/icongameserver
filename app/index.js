@@ -32,8 +32,6 @@ async function connectToDatabase(uri) {
     return cachedDb
   }
 
-  // vercel secrets add my-mongodb-uri mongodb+srv://brsrtc:'Y030t300c!'@cluster0.c8qqc.mongodb.net/cluster0?retryWrites=true&w=majority
-
   // If no connection is cached, create a new one
   const client = await MongoClient.connect(uri, { useNewUrlParser: true })
 
