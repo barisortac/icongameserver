@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "env": {
+    "MONGODB_URI": "@my-mongodb-uri"
+  },
+  "builds": [
+    {
+      "src": "app/index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "ui/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "app/index.js"
+    },
+    {
+      "src": "/",
+      "dest": "ui/index.html"
+    },
+    {
+      "src": "/(.+)",
+      "dest": "ui/$1"
+    }
+  ]
+}
