@@ -5,14 +5,14 @@ const bodyParser = require('body-parser');
 app.use(bodyParser());
 
 const corsOptions = {
-  origin: 'http://icongame.vercel.app',
+  origin: 'https://icongame.vercel.app',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 app.use(cors(corsOptions))
 // app.use(cors())
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://icongame.vercel.app");
+  res.header("Access-Control-Allow-Origin", "https://icongame.vercel.app");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
