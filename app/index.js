@@ -71,10 +71,13 @@ app.post('/api/leaderboard',
       const db = await connectToDatabase(process.env.MONGODB_URI)
       const collection = await db.collection('leaderboard')
       const {name, score} = req.body;
+      let now = new Date()
+      now = now.toISOString()
+
       const payload = {
         name: name,
         score: score,
-        current_date: new Date()
+        current_date: now
       };
       const addResult = await collection.insertOne(payload)
       cachedDb = null;
